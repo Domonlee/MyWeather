@@ -1,7 +1,9 @@
-package cn.domon.myweather;
+package cn.domon.myweather.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import cn.domon.myweather.R;
 
 
 public class MainActivity extends Activity {
