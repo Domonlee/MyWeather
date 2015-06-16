@@ -1,0 +1,12 @@
+com/umeng/analytics/MobclickAgent.class
+cn/domon/myweather/activity/ChooseAreaActivity$2.class
+cn/domon/myweather/activity/ChooseAreaActivity$1.class
+cn/domon/myweather/model/City.class
+cn/domon/myweather/util/HttpUtil.class
+cn/domon/myweather/activity/WeatherActivity$1.class
+cn/domon/myweather/model/County.class
+cn/domon/myweather/util/HttpCallbackListener.class
+cn/domon/myweather/activity/ChooseAreaActivity.class
+cn/domon/myweather/activity/WeatherActivity.class
+cn/domon/myweather/model/Province.class
+cn/domon/myweather/model/MyWeatherDB.class

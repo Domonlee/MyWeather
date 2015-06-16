@@ -5,14 +5,14 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.7" />
         <option name="modules">
           <set>
-            <option value="$USER_HOME$/AndroidstudioProjects/MyWeather2" />
-            <option value="$USER_HOME$/AndroidstudioProjects/MyWeather2/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
     </option>
   </component>
 </project>
-

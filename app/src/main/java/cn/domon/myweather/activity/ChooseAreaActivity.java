@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +42,7 @@ public class ChooseAreaActivity extends Activity {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private MyWeatherDB myWeatherDB;
+    private RelativeLayout titleRl;
     private List<String> dataList = new ArrayList<String>();
 
     private List<Province> provincesList;
@@ -54,8 +58,8 @@ public class ChooseAreaActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("city_selected",false)){
-            Intent intent = new Intent(this,WeatherActivity.class);
+        if (prefs.getBoolean("city_selected", false)) {
+            Intent intent = new Intent(this, WeatherActivity.class);
             startActivity(intent);
             finish();
             return;
@@ -64,6 +68,8 @@ public class ChooseAreaActivity extends Activity {
         setContentView(R.layout.choose_area);
         listView = (ListView) findViewById(R.id.list_view);
         titleText = (TextView) findViewById(R.id.title_text);
+        titleRl = (RelativeLayout) findViewById(R.id.title_rl);
+
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
         listView.setAdapter(adapter);
 
@@ -73,20 +79,37 @@ public class ChooseAreaActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int location, long id) {
                 if (currentLevel == LEVEL_PROVINCE) {
                     selectedProvince = provincesList.get(location);
+                    titleRl.setBackgroundColor(getResources().getColor(R.color.green_one));
                     queryCities();
                 } else if (currentLevel == LEVEL_CITY) {
                     selectedCity = cityList.get(location);
+                    titleRl.setBackgroundColor(getResources().getColor(R.color.green_two));
                     queryCounties();
-                }else if (currentLevel == LEVEL_COUNTY){
+                } else if (currentLevel == LEVEL_COUNTY) {
+                    titleRl.setBackgroundColor(getResources().getColor(R.color.green_three));
                     String countyCode = countyList.get(location).getCountyCode();
-                    Intent intent = new Intent(ChooseAreaActivity.this,WeatherActivity.class);
-                    intent.putExtra("county_code",countyCode);
+                    Intent intent = new Intent(ChooseAreaActivity.this, WeatherActivity.class);
+                    intent.putExtra("county_code", countyCode);
                     startActivity(intent);
                     finish();
                 }
             }
         });
         queryProvinces();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("ChooseAreaActivity");
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("ChooseAreaActivity");
+        MobclickAgent.onPause(this);
     }
 
     /**

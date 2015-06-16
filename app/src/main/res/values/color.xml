@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- global start -->
+    <color name="global_pink_color">#fe2557</color>
+    <color name="global_white_color">#ffffff</color>
+    <color name="global_black_color">#000000</color>
+    <color name="global_gray_color">#999999</color>
+    <color name="global_link_color">#20659E</color>
+    <color name="global_edittext_hint_color">#999999</color>
+    <color name="global_edittext_input_color">#333333</color>
+    <color name="global_split_bline_color">#EFEFF4</color>
+    <color name="global_split_sline_color">#DADADA</color>
+    <color name="global_black">#000000</color>
+    <color name="global_gray">#666666</color>
+    <!-- global end -->
+
+    <color name="bottom_btn_pressed">#fe2557</color>
+    <color name="bottom_btn_normal">#999999</color>
+
+    <color name="login_btn_orange">#ff6900</color>
+    <color name="black_normal">#99000000</color>
+    <color name="main_text_color">#333333</color>
+
+    <color name="blue">#ff33b5e5</color>
+    <color name="selected_tag">#fb6e52</color>
+
+    <color name="tv_normal_color">#ffa3a3a3</color>
+    <color name="tv_pressed_color">#fffb6e52</color>
+    <color name="address_select">#f2f2f2</color>
+    
+    <color name="green_one">#009999</color>
+    <color name="green_two">#66cccc</color>
+    <color name="green_three">#ccffff</color>
+
+
+</resources>

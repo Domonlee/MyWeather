@@ -37,6 +37,7 @@ public class MyWeatherDB {
     public MyWeatherDB(Context context) {
         MyWeatherOpenHelper dbHelper = new MyWeatherOpenHelper(context, DB_NAME, null, VERSION);
         db = dbHelper.getWritableDatabase();
+
     }
 
     /**

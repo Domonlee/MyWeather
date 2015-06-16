@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:18
+-keep class cn.domon.myweather.activity.ChooseAreaActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:25
+-keep class cn.domon.myweather.activity.WeatherActivity { <init>(...); }
+
