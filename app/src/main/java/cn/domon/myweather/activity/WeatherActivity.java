@@ -58,7 +58,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText = (TextView) findViewById(R.id.current_data);
         badyRl = (RelativeLayout) findViewById(R.id.body_rl);
 
-        //FIxme
+        //TST Code
         mAdRl = (RelativeLayout) findViewById(R.id.ad_banner_rl);
         mAdView = new GuomobAdView(this,"j7x32ul108i6940");
         mAdRl.addView(mAdView);
@@ -114,6 +114,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
 
         cityNameText.setOnClickListener(this);
 
+
+        //TST Code End
 
         badyRl.setOnClickListener(this);
 
@@ -211,6 +213,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
                     count = 0;
                 }
                 break;
+            //TST CODE Start
             case R.id.city_name:
                 if(mInScreenAd.IsInScreenAdLoad()){
                     mInScreenAd.ShowInScreenAd();
@@ -218,6 +221,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
                     mInScreenAd.LoadInScreenAd(false);
                 }
                 break;
+            //TST CODE End
             default:
                 break;
         }
