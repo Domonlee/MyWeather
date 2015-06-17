@@ -44,18 +44,19 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000b;
-        public static final int body_rl=0x7f090004;
-        public static final int city_name=0x7f090003;
-        public static final int current_data=0x7f090007;
+        public static final int action_settings=0x7f09000c;
+        public static final int ad_banner_rl=0x7f090003;
+        public static final int body_rl=0x7f090005;
+        public static final int city_name=0x7f090004;
+        public static final int current_data=0x7f090008;
         public static final int list_view=0x7f090002;
-        public static final int publish_text=0x7f090005;
-        public static final int temp1=0x7f090009;
-        public static final int temp2=0x7f09000a;
+        public static final int publish_text=0x7f090006;
+        public static final int temp1=0x7f09000a;
+        public static final int temp2=0x7f09000b;
         public static final int title_rl=0x7f090000;
         public static final int title_text=0x7f090001;
-        public static final int weather_desp=0x7f090008;
-        public static final int weather_info_layout=0x7f090006;
+        public static final int weather_desp=0x7f090009;
+        public static final int weather_info_layout=0x7f090007;
     }
     public static final class layout {
         public static final int choose_area=0x7f030000;

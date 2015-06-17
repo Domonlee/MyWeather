@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
-def releaseTime(){
-    return new Date().format("yyyy-MM-dd",TimeZone.getTimeZone("UTC"))
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
 
 android {
@@ -18,19 +18,19 @@ android {
         //dex突破65535限制
         multiDexEnabled true
         //默认是umeng渠道
-        manifestPlaceholders = [UMENG_CHANNEL_VALUE:"umeng"]
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
     }
 
-    lintOptions{
+    lintOptions {
         abortOnError false
     }
 
-    signingConfigs{
-        debug{
+    signingConfigs {
+        debug {
             // no debug config
         }
 
-        release{
+        release {
             storeFile file("domon.keystore")
             storePassword "lizhao"
             keyAlias "domon"
@@ -44,7 +44,7 @@ android {
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //        }
         release {
-            buildConfigField "boolean","LOG_DEBUG","false"
+            buildConfigField "boolean", "LOG_DEBUG", "false"
 
             minifyEnabled true
             zipAlignEnabled true
@@ -58,4 +58,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/umeng-analytics-v5.5.2.jar')
+    compile files('libs/guomob_banner_sdk.jar')
+    compile files('libs/guomob_screen_sdk.jar')
 }

@@ -24,6 +24,14 @@
     <init>();
 }
 
+-keep class com.guomob.banner.GuomobAdActivity {
+    <init>();
+}
+
+-keep class com.guomob.screen.GuomobAdActivity {
+    <init>();
+}
+
 -keep public class * extends android.app.backup.BackupAgent {
     <init>();
 }
