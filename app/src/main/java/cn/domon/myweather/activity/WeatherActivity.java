@@ -5,21 +5,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.guomob.banner.GuomobAdView;
-import com.guomob.banner.OnBannerAdListener;
-import com.guomob.screen.GuomobInScreenAd;
-import com.guomob.screen.OnInScreenAdListener;
 import com.umeng.analytics.MobclickAgent;
 
 import cn.domon.myweather.R;
+import cn.domon.myweather.util.AdUtil;
 import cn.domon.myweather.util.HttpCallbackListener;
 import cn.domon.myweather.util.HttpUtil;
 import cn.domon.myweather.util.Utility;
@@ -28,6 +25,8 @@ import cn.domon.myweather.util.Utility;
  * Created by Domon on 15-2-9.
  */
 public class WeatherActivity extends Activity implements View.OnClickListener {
+    private static final String TAG = WeatherActivity.class.getSimpleName();
+
     private LinearLayout weatherInfoLayout;
     private TextView cityNameText;
     private TextView publishText;
@@ -36,12 +35,14 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
     private TextView temp2Text;
     private TextView currentDateText;
 
-    private RelativeLayout mAdRl;
-    private GuomobAdView mAdView;
-    private GuomobInScreenAd mInScreenAd;
+//    private RelativeLayout mAdRl;
+//    private GuomobAdView mAdView;
+//    private GuomobInScreenAd mInScreenAd;
 
     private RelativeLayout badyRl;
     private int count = 0;
+
+    private WebView mWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,57 +60,60 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         badyRl = (RelativeLayout) findViewById(R.id.body_rl);
 
         //TST Code
-        mAdRl = (RelativeLayout) findViewById(R.id.ad_banner_rl);
-        mAdView = new GuomobAdView(this,"j7x32ul108i6940");
-        mAdRl.addView(mAdView);
+        mWebView = (WebView) findViewById(R.id.ad_banner_wv);
 
-        mInScreenAd = new GuomobInScreenAd(this,"j7x32ul108i6940",true);
-        mInScreenAd.LoadInScreenAd(true);
-        mInScreenAd.setOnInScreenAdListener(new OnInScreenAdListener() {
-            //无网络连接
-            public void onNetWorkError() {
-                // TODO Auto-generated method stub
-                Log.e("GuomobLog", "onNetWorkError");
-            }
+        AdUtil.setAds(this, mWebView);
 
-            //加载广告成功
-            public void onLoadAdOk() {
-                // TODO Auto-generated method stub
-                Log.e("GuomobLog", "onLoadAdOk");
-            }
-
-            //加载广告失败 arg0：失败原因
-            public void onLoadAdError(String arg0) {
-                // TODO Auto-generated method stub
-                Log.e("GuomobLog", "onLoadInScreenAdError:" + arg0);
-            }
-
-            //用户关闭广告
-            public void onClose() {
-                // TODO Auto-generated method stub
-                Log.e("GuomobLog", "onClose");
-            }
-        });
-
-        mInScreenAd.ShowInScreenAd();
-
-        mAdView.setOnBannerAdListener(new OnBannerAdListener() {
-
-            //无网络连接
-            public void onNetWorkError() {
-                Log.e("GuomobLog", "onNetWorkError");
-            }
-
-            //加载广告成功
-            public void onLoadAdOk() {
-                Log.e("GuomobLog", "onLoadAdOk");
-            }
-
-            //加载广告失败  arg0：失败原因
-            public void onLoadAdError(String arg0) {
-                Log.e("GuomobLog", "onLoadAdError" + arg0);
-            }
-        });
+//        mAdView = new GuomobAdView(this,"j7x32ul108i6940");
+//        mAdRl.addView(mAdView);
+//
+//        mInScreenAd = new GuomobInScreenAd(this,"j7x32ul108i6940",true);
+//        mInScreenAd.LoadInScreenAd(true);
+//        mInScreenAd.setOnInScreenAdListener(new OnInScreenAdListener() {
+//            //无网络连接
+//            public void onNetWorkError() {
+//                // TODO Auto-generated method stub
+//                Log.e("GuomobLog", "onNetWorkError");
+//            }
+//
+//            //加载广告成功
+//            public void onLoadAdOk() {
+//                // TODO Auto-generated method stub
+//                Log.e("GuomobLog", "onLoadAdOk");
+//            }
+//
+//            //加载广告失败 arg0：失败原因
+//            public void onLoadAdError(String arg0) {
+//                // TODO Auto-generated method stub
+//                Log.e("GuomobLog", "onLoadInScreenAdError:" + arg0);
+//            }
+//
+//            //用户关闭广告
+//            public void onClose() {
+//                // TODO Auto-generated method stub
+//                Log.e("GuomobLog", "onClose");
+//            }
+//        });
+//
+//        mInScreenAd.ShowInScreenAd();
+//
+//        mAdView.setOnBannerAdListener(new OnBannerAdListener() {
+//
+//            //无网络连接
+//            public void onNetWorkError() {
+//                Log.e("GuomobLog", "onNetWorkError");
+//            }
+//
+//            //加载广告成功
+//            public void onLoadAdOk() {
+//                Log.e("GuomobLog", "onLoadAdOk");
+//            }
+//
+//            //加载广告失败  arg0：失败原因
+//            public void onLoadAdError(String arg0) {
+//                Log.e("GuomobLog", "onLoadAdError" + arg0);
+//            }
+//        });
 
 
         cityNameText.setOnClickListener(this);
@@ -215,11 +219,11 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
                 break;
             //TST CODE Start
             case R.id.city_name:
-                if(mInScreenAd.IsInScreenAdLoad()){
-                    mInScreenAd.ShowInScreenAd();
-                }else{
-                    mInScreenAd.LoadInScreenAd(false);
-                }
+//                if (mInScreenAd.IsInScreenAdLoad()) {
+//                    mInScreenAd.ShowInScreenAd();
+//                } else {
+//                    mInScreenAd.LoadInScreenAd(false);
+//                }
                 break;
             //TST CODE End
             default:
@@ -246,4 +250,5 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         MobclickAgent.onPageEnd("WeatherActivity");
         MobclickAgent.onPause(this);
     }
+
 }

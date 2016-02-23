@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.domon.myweather">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -18,15 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.WeatherActivity"></activity>
-
         <activity
-            android:name="com.guomob.banner.GuomobAdActivity"
-            android:theme="@android:style/Theme.Translucent" />
+            android:name=".activity.WeatherActivity"
+            android:screenOrientation="portrait" />
 
-        <activity
-            android:name="com.guomob.screen.GuomobAdActivity"
-            android:theme="@android:style/Theme.Translucent" />
+        <!--<activity-->
+        <!--android:name="com.guomob.banner.GuomobAdActivity"-->
+        <!--android:theme="@android:style/Theme.Translucent" />-->
+
+        <!--<activity-->
+        <!--android:name="com.guomob.screen.GuomobAdActivity"-->
+        <!--android:theme="@android:style/Theme.Translucent" />-->
 
         <meta-data
             android:name="UMENG_APPKEY"
@@ -39,9 +41,9 @@
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
 
-        <meta-data
-            android:name="guomobid"
-            android:value="appid:j7x32ul108i6940"/>
+        <!--<meta-data-->
+        <!--android:name="guomobid"-->
+        <!--android:value="appid:j7x32ul108i6940"/>-->
     </application>
 
 </manifest>
