@@ -46,10 +46,11 @@ android {
         release {
             buildConfigField "boolean", "LOG_DEBUG", "false"
 
-            minifyEnabled true
+            minifyEnabled false
             zipAlignEnabled true
             //移除无用的resource文件
             shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
@@ -57,7 +58,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v4:21.0.3'
     compile files('libs/umeng-analytics-v5.5.2.jar')
     compile files('libs/guomob_banner_sdk.jar')
     compile files('libs/guomob_screen_sdk.jar')
+    compile files('libs/xUtils-2.6.14.jar')
 }

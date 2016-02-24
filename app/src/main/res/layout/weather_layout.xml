@@ -5,12 +5,6 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/ad_banner_rl"
-        android:layout_width="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_height="50dp"></RelativeLayout>
-
-    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#484">
@@ -100,5 +94,10 @@
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
+
+    <WebView
+        android:id="@+id/ad_banner_wv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
