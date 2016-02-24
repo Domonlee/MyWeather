@@ -15,3 +15,15 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#xUtils
+-keep class * extends java.lang.annotation.Annotation { *; }
+
+#Umeng
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
