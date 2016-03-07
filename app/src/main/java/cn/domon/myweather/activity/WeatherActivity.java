@@ -212,7 +212,6 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
             case R.id.body_rl:
                 count++;
                 if (count == 10) {
-//                    Toast.makeText(this, "Love U,My YoYO~", Toast.LENGTH_LONG).show();
                     Toast.makeText(this, "Life is Strange!", Toast.LENGTH_LONG).show();
                     count = 0;
                 }
